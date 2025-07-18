@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'app_rheme_data.dart';
 
-
 TextStyle black10bold() =>
     const TextStyle(fontSize: 10.0, fontWeight: FontWeight.w700);
 TextStyle black12bold() => const TextStyle(

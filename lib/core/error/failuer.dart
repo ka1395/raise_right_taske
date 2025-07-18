@@ -20,19 +20,21 @@ class ServerFailure extends Failuer {
         return ServerFailure('Receive timeout with ApiServer');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            e.response!.statusCode, e.response!.data);
+          e.response!.statusCode,
+          e.response!.data,
+        );
       case DioExceptionType.cancel:
         return ServerFailure('Request to ApiServer was canceld');
       case DioExceptionType.connectionError:
         return ServerFailure('No Enternet connection');
-        case DioExceptionType.badCertificate:
+      case DioExceptionType.badCertificate:
         return ServerFailure('badCertificate error');
-        case DioExceptionType.unknown:
+      case DioExceptionType.unknown:
         return ServerFailure('Something went wrong');
-      }
+    }
   }
 
-   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
+  factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(response['error']['message']);
     } else if (statusCode == 404) {

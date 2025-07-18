@@ -1,5 +1,10 @@
 import 'package:get_it/get_it.dart';
 
+import '../../features/dash_board/data/data_sources/dash_board_remote_data_source.dart';
+import '../../features/dash_board/data/repos/dash_board_repo_impl.dart';
+import '../../features/dash_board/domain/use_cases/fetch_initial_data_use_case.dart';
+import '../../features/dash_board/presentation/veiw_model/dashboard_cubit/dashboard_cubit.dart';
+
 final instanceGetIt = GetIt.instance;
 
 // Future<void> initAppModule() async {
@@ -33,10 +38,28 @@ final instanceGetIt = GetIt.instance;
 //       () => RepositoryImpl(instance(), instance()));
 // }
 
-// initLoginModule() {
-//   if (!GetIt.I.isRegistered<LoginUseCase>()) {
-//     instance.registerFactory<LoginUseCase>(() => LoginUseCase(instance()));
-//     instance.registerFactory<LoginViewModel>(() => LoginViewModel(instance<LoginUseCase>()));
-//   }
- 
-// }
+initCoinsModule() {
+  if (!GetIt.I.isRegistered<DashBoardRemoteDataSourceImp>()) {
+    instanceGetIt.registerLazySingleton<DashBoardRemoteDataSourceImp>(
+      () => DashBoardRemoteDataSourceImp(),
+    );
+  }
+  if (!GetIt.I.isRegistered<DashBoardRepoImpl>()) {
+    instanceGetIt.registerLazySingleton<DashBoardRepoImpl>(
+      () => DashBoardRepoImpl(
+        dashBoardRemoteDataSource:
+            instanceGetIt<DashBoardRemoteDataSourceImp>(),
+      ),
+    );
+  }
+  if (!GetIt.I.isRegistered<FetchInitialDataUseCase>()) {
+    instanceGetIt.registerFactory<FetchInitialDataUseCase>(
+      () => FetchInitialDataUseCase(instanceGetIt<DashBoardRepoImpl>()),
+    );
+  }
+  if (!GetIt.I.isRegistered<DashboardCubit>()) {
+    instanceGetIt.registerFactory<DashboardCubit>(
+      () => DashboardCubit(instanceGetIt<FetchInitialDataUseCase>()),
+    );
+  }
+}

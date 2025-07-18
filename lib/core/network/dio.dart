@@ -6,16 +6,15 @@ class DioHelper {
   static late Dio dio;
 
   static init() {
-    dio = Dio(BaseOptions(
-      baseUrl: baseUrl,
-      receiveDataWhenStatusError: true,
-    ));
+    dio = Dio(
+      BaseOptions(baseUrl: Constant.baseUrl, receiveDataWhenStatusError: true),
+    );
   }
 
   static Future<Response> get({
     required String url,
     Map<String, dynamic>? query,
- 
+
     String? token,
   }) async {
     dio.options.headers = {
@@ -37,7 +36,7 @@ class DioHelper {
     };
     return await dio.post(url, data: data, queryParameters: query);
   }
-  
+
   static Future<Response> put({
     required String url,
     required Map<String, dynamic> data,

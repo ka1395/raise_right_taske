@@ -18,34 +18,27 @@ Widget defaultFormField({
   String hint = " ",
   Color? iconColor,
   Color? textColor,
-}) =>
-    TextFormField(
-      controller: controller,
-      keyboardType: type,
-      obscureText: isPassword,
-      onTap: onTap,
-      onChanged: onChange,
-      onFieldSubmitted: onSubmite,
-      validator: validate,
-      decoration: InputDecoration(
-          hintText: hint,
-          hintStyle: TextStyle(color: textColor),
-          fillColor: fillcolor,
-          filled: isfilled,
-          labelText: lable,
-          prefixIcon: prefx == null
-              ? null
-              : Icon(
-                  prefx,
-                  color: iconColor,
-                ),
-          suffixIcon: IconButton(
-            onPressed: suffixPassword,
-            icon: Icon(
-              suffix,
-              color: iconColor,
-            ),
-          ),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(borderradius)))),
-    );
+}) => TextFormField(
+  controller: controller,
+  keyboardType: type,
+  obscureText: isPassword,
+  onTap: onTap,
+  onChanged: onChange,
+  onFieldSubmitted: onSubmite,
+  validator: validate,
+  decoration: InputDecoration(
+    hintText: hint,
+    hintStyle: TextStyle(color: textColor),
+    fillColor: fillcolor,
+    filled: isfilled,
+    labelText: lable,
+    prefixIcon: prefx == null ? null : Icon(prefx, color: iconColor),
+    suffixIcon: IconButton(
+      onPressed: suffixPassword,
+      icon: Icon(suffix, color: iconColor),
+    ),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(borderradius)),
+    ),
+  ),
+);
