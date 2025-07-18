@@ -72,7 +72,7 @@ ThemeData darkTheme() {
   return ThemeData(
     disabledColor: AppThemData.disabledColor,
     primaryColor: AppThemData.primaryColor,
-    scaffoldBackgroundColor: AppThemData.assetColorGrey1000,
+    scaffoldBackgroundColor: AppThemData.backgroundColorDark,
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       // color: AppThemData.primaryColorDark,

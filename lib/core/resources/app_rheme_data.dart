@@ -13,6 +13,8 @@ class AppThemData {
   // static const Color primaryColor = Color(0xFF00B88C);
   static const Color primaryColor = Color(0xFF212246);
   static const Color secondaryColor = Color(0xFFFFC92C);
+  static const Color backgroundColorDark = Color(0xFF161730);
+
   static const Color governorBay400 = Color(0xFF5167db);
   static const Color cabBookingOrange200 = Color(0xFF6f85f7);
   static const Color assetColorGrey = Color(0xFF393E46);

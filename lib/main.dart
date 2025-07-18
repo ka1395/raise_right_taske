@@ -35,8 +35,8 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      initialRoute: AppRouts.dashboardScreen,
-      theme: lightTheme(),
+      initialRoute: AppRouts.getStartedScreen,
+      theme: darkTheme(),
       // instanceGetIt.get<AppCubit>().getThem()
       // ? darkTheme()
       // : lightTheme(),

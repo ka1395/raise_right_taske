@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../features/get_start/get_started_screen.dart';
 import '../../features/home/presentation/view/home_screen.dart';
 import '../widgets/round_button_fill.dart';
 import 'app_rheme_data.dart';
 import 'responive.dart';
 
 class AppRouts {
-  static const String splashScreen = "/";
-  static const String introScreen = "/IntroScreen";
+  static const String getStartedScreen = "/";
   static const String dashboardScreen = "/DashboardScreen";
   static const String loginScreen = "/LoginScreen";
 }
@@ -15,6 +15,7 @@ class AppRouts {
 Route<dynamic>? onGenerateRoute(RouteSettings settings) {
   final routes = <String, Widget>{
     AppRouts.dashboardScreen: const DashboardScreen(),
+    AppRouts.getStartedScreen: const GetStartedScreen(),
     // AppRouts.introScreen: BlocProvider.value(
     //   value: instanceGetIt.get<AppCubit>(),
     //   child: const IntroScreen(),
