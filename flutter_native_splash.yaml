@@ -1,0 +1,29 @@
+flutter_native_splash:
+  # background_image: "assets/icon/splash.png"
+  # background_image: "assets/icon/newsplash.png"
+  color: "#212246"
+  
+  # background_image_android: "assets/icon/newsplash.png"
+  # color: "#000000"
+  # android_gravity can be one of the following Android Gravity (see
+  # https://developer.android.com/reference/android/view/Gravity): bottom, center,
+  # center_horizontal, center_vertical, clip_horizontal, clip_vertical, end, fill, fill_horizontal,
+  # fill_vertical, left, right, start, or top.
+  # android_gravity: fill
+  # fullscreen: true
+  # ios_content_mode: scaleToFill
+  # android_gravity: START
+  # icon_background_color: "#ffffff"
+    # background_image_android: assets/icon/splash.png
+  android_12:
+    color: "#212246"
+    # branding: assets/icon/newsplash2.png
+    # # background_image: assets/icon/taamiz.png
+    # branding_mode: bottom
+    # branding_bottom_padding: 50
+    # branding_bottom_padding_ios: 70
+    # image: assets/icon/splash_android12.png
+    # # background_image_android: assets/icon/splash.png
+    # # android_gravity: fill
+    # # fullscreen: true
+    # # android_gravity: START    
