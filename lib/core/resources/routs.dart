@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../features/get_start/get_started_screen.dart';
-import '../../features/home/presentation/view/home_screen.dart';
+import '../../features/dash_board/presentation/view/dash_board_creen.dart';
 import '../widgets/round_button_fill.dart';
 import 'app_rheme_data.dart';
 import 'responive.dart';

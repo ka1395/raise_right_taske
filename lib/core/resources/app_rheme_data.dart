@@ -12,6 +12,7 @@ class AppThemData {
   //App general color theme
   // static const Color primaryColor = Color(0xFF00B88C);
   static const Color primaryColor = Color(0xFF212246);
+  static const Color primaryColorBright = Color(0xFF34355F);
   static const Color secondaryColor = Color(0xFFFFC92C);
   static const Color backgroundColorDark = Color(0xFF161730);
 

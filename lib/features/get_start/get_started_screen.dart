@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:raise_right_taske/core/resources/app_rheme_data.dart';
+import '../../core/resources/routs.dart';
 import '../../core/widgets/round_button_fill.dart'; // Import the generated localization class
 
 class GetStartedScreen extends StatelessWidget {
@@ -47,7 +48,10 @@ class GetStartedScreen extends StatelessWidget {
               fontSizes: 18,
               color: AppThemData.primaryColor,
               onPress: () {
-                // Handle button press
+                Navigator.pushReplacementNamed(
+                  context,
+                  AppRouts.dashboardScreen,
+                );
               },
             ),
           ],

@@ -77,7 +77,7 @@ ThemeData darkTheme() {
       centerTitle: true,
       // color: AppThemData.primaryColorDark,
       titleTextStyle: TextStyle(color: AppThemData.assetColorLightGrey600),
-      backgroundColor: AppThemData.assetColorGrey1000,
+      backgroundColor: AppThemData.backgroundColorDark,
       elevation: 0,
       iconTheme: IconThemeData(color: AppThemData.white),
     ),
