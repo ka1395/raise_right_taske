@@ -19,6 +19,7 @@ void main() async {
   await HiveHelper.init();
   await Preferences.initPref();
   await DioHelper.init();
+
   runApp(DevicePreview(enabled: true, builder: (context) => const MyApp()));
 }
 
@@ -33,7 +34,22 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     initAppCubitModule();
+    _loadPreferences();
     super.initState();
+  }
+
+  void _loadPreferences() {
+    final appCubit = instanceGetIt.get<AppCubit>();
+
+    // Get dark mode preference
+    final isDarkMode = Preferences.getBoolean(Preferences.themeKey);
+    appCubit.darkTheme = isDarkMode;
+
+    // Get language preference
+    final savedLanguage = Preferences.getString(Preferences.languageKey);
+    if (savedLanguage.isNotEmpty) {
+      appCubit.currentLanguage = savedLanguage;
+    }
   }
 
   @override

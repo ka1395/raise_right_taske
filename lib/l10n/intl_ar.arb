@@ -1,1 +1,15 @@
-{}
+{
+
+"cryptoCurrency":"العملات المشفرة",
+    "settings":"الاعدادات",
+    "language":"اللغة",
+    "dark_mode":  "الوضع المظلم",
+    "select_language":"اختر اللغة",
+    "arabic":"العربية",
+    "english":"الانجليزية",
+    "change":"تغيير",
+    "cancel":"الغاء",
+    "save_security":"حفظ الأمان",
+    "des_intro_screen":"استمتع بمعرفة أسعار العملات المشفرة بأمان",
+    "get_started":"ابدأ"
+}

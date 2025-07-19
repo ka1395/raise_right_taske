@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../generated/l10n.dart' show S;
 import '../constantd.dart';
 import '../resources/app_rheme_data.dart';
 import '../resources/get_it.dart';
@@ -14,6 +15,9 @@ class SelectedLanguageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+     final localization = S.of(
+      context,
+    ); 
     return BlocBuilder<AppCubit, AppStates>(
       builder: (context, state) {
         return Padding(
@@ -35,7 +39,7 @@ class SelectedLanguageScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     Text(
-                      "قم باختيار اللغة",
+                      localization.select_language,
                       style: theme.textTheme.headlineLarge,
                       textAlign: TextAlign.center,
                     ),
@@ -58,7 +62,7 @@ class SelectedLanguageScreen extends StatelessWidget {
               Row(
                 children: [
                   buttonBottomSheet(
-                    txt: "الغاء",
+                    txt: localization.cancel,
                     color: AppThemData.assetColorLightGrey700,
                     textColor: AppThemData.assetColorDarkGrey950,
                     func: () {
@@ -67,7 +71,7 @@ class SelectedLanguageScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 24),
                   buttonBottomSheet(
-                    txt: "تغيير",
+                    txt: localization.change,
                     color: AppThemData.primaryColor,
                     textColor: AppThemData.white,
                     func: () {

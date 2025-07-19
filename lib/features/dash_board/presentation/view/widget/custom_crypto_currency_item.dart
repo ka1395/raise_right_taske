@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:raise_right_taske/core/resources/get_it.dart';
+import 'package:raise_right_taske/core/utils/app_cubit/app_cubit.dart';
 
 import '../../../../../core/resources/app_rheme_data.dart';
 import '../../../../../core/resources/responive.dart';
@@ -25,14 +27,24 @@ class CustomCryptoCurrencyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final themeChange = instanceGetIt.get<AppCubit>();
 
     return Container(
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.all(10),
       width: Responsive.width(100, context),
       decoration: BoxDecoration(
-        color: AppThemData.primaryColor,
+        color: themeChange.getThem()
+            ? AppThemData.primaryColor
+            : AppThemData.colorWhite,
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: AppThemData.primaryColorBright,
+            blurRadius: 2,
+            offset: themeChange.getThem() ? Offset.zero : const Offset(0, 2),
+          ),
+        ],
       ),
       child: LayoutBuilder(
         builder: (context, constraints) => Row(
@@ -63,9 +75,7 @@ class CustomCryptoCurrencyItem extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: theme.textTheme.titleMedium!.copyWith(
-                          color: AppThemData.white,
-                        ),
+                        style: theme.textTheme.titleMedium!.copyWith(),
                       ),
                       SizedBox(height: 5),
                       Row(
@@ -109,12 +119,7 @@ class CustomCryptoCurrencyItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(
-                  status,
-                  style: theme.textTheme.titleLarge!.copyWith(
-                    color: AppThemData.white,
-                  ),
-                ),
+                Text(status, style: theme.textTheme.titleLarge!.copyWith()),
                 SizedBox(height: 5),
                 Text(
                   "$price",
@@ -130,5 +135,3 @@ class CustomCryptoCurrencyItem extends StatelessWidget {
     );
   }
 }
-
-

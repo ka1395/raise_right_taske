@@ -53,6 +53,86 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `CryptoCurrency`
+  String get cryptoCurrency {
+    return Intl.message(
+      'CryptoCurrency',
+      name: 'cryptoCurrency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Dark Mode`
+  String get dark_mode {
+    return Intl.message('Dark Mode', name: 'dark_mode', desc: '', args: []);
+  }
+
+  /// `Select Language`
+  String get select_language {
+    return Intl.message(
+      'Select Language',
+      name: 'select_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message('English', name: 'english', desc: '', args: []);
+  }
+
+  /// `Change`
+  String get change {
+    return Intl.message('Change', name: 'change', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Save Security`
+  String get save_security {
+    return Intl.message(
+      'Save Security',
+      name: 'save_security',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enjoy knowing cryptocurrency rates safely`
+  String get des_intro_screen {
+    return Intl.message(
+      'Enjoy knowing cryptocurrency rates safely',
+      name: 'des_intro_screen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get get_started {
+    return Intl.message('Get Started', name: 'get_started', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

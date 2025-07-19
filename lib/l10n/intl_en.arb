@@ -1,1 +1,15 @@
-{}
+{
+ "cryptoCurrency":"CryptoCurrency",
+ "settings":"Settings",
+ "language":"Language",
+ "dark_mode":  "Dark Mode",
+ "select_language":"Select Language",
+ "arabic":"Arabic",
+ "english":"English",
+ "change":"Change",
+ "cancel":"Cancel",
+     "save_security":"Save Security",
+         "des_intro_screen":"Enjoy knowing cryptocurrency rates safely"
+,
+   "get_started":"Get Started"
+}

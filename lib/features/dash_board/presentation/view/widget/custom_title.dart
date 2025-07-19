@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/resources/app_rheme_data.dart';
+import '../../../../../generated/l10n.dart';
 import '../../veiw_model/dashboard_cubit/dashboard_cubit.dart';
 import '../../veiw_model/dashboard_cubit/dashboard_state.dart';
 
@@ -11,7 +12,7 @@ class CustomTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+    final localization = S.of(context);
     return Row(
       children: [
         SizedBox(
@@ -30,7 +31,7 @@ class CustomTitle extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "cryptoCurrency", // Use localized "Welcome"
+              localization.cryptoCurrency,
               textAlign: TextAlign.start,
               style: theme.textTheme.headlineSmall,
             ),
@@ -48,7 +49,6 @@ class CustomTitle extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.titleMedium!.copyWith(
                         fontFamily: AppThemData.semiBold,
-                        color: AppThemData.assetColorLightGrey600,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

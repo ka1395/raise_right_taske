@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:raise_right_taske/core/resources/app_rheme_data.dart';
 import '../../core/resources/routs.dart';
-import '../../core/widgets/round_button_fill.dart'; // Import the generated localization class
+import '../../core/widgets/round_button_fill.dart';
+import '../../generated/l10n.dart'; // Import the generated localization class
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
@@ -10,7 +11,7 @@ class GetStartedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+    final localization = S.of(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -33,18 +34,18 @@ class GetStartedScreen extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "Save Security", // Use the localized string
+                  localization.save_security,
                   style: theme.textTheme.headlineLarge,
                 ),
                 SizedBox(height: 15),
                 Text(
-                  "Enjoy knowing cryptocurrency rates safely", // Use the localized string
+                  localization.des_intro_screen,
                   style: theme.textTheme.titleMedium,
                 ),
               ],
             ),
             RoundedButtonFill(
-              title: "get Started", // Use the localized string
+              title: localization.get_started, // Use the localized string
               fontSizes: 18,
               color: AppThemData.primaryColor,
               onPress: () {

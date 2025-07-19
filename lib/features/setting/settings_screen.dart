@@ -8,6 +8,7 @@ import '../../core/resources/app_rheme_data.dart';
 import '../../core/resources/get_it.dart';
 import '../../core/utils/app_cubit/app_states.dart';
 import '../../core/widgets/select_language_screen.dart';
+import '../../generated/l10n.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -26,12 +27,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final themeChange = instanceGetIt.get<AppCubit>();
     final theme = Theme.of(context);
+    final localization = S.of(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
 
         title: Text(
-          "settings", // Use localized "Welcome"
+          localization.settings,
           textAlign: TextAlign.start,
           style: theme.textTheme.headlineLarge,
         ),
@@ -80,7 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                         horizontalTitleGap: 3,
                         title: Text(
-                          "Language", // Use localized "Language"
+                          localization.language,
                           style: theme.textTheme.titleLarge,
                         ),
                         trailing: const Icon(
@@ -100,7 +102,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                         horizontalTitleGap: 3,
                         title: Text(
-                          "Dark Mode", // Use localized "Dark Mode"
+                          localization.dark_mode,
                           style: theme.textTheme.titleLarge,
                         ),
                         trailing: Transform.scale(
