@@ -4,13 +4,13 @@ import '../../../../core/error/failuer.dart';
 import '../../../../core/use_case/use_case.dart';
 import '../repos/dash_board_repo.dart';
 
-class FetchInitialDataUseCase extends UseCase<List<CoinsEntity>, NoParam> {
+class FetchInitialDataUseCase extends UseCase<Map<String, CoinsEntity>, NoParam> {
   final DashBoardRepo dashBoardRepo;
 
   FetchInitialDataUseCase(this.dashBoardRepo);
   
   @override
-  Future<Either<Failuer, List<CoinsEntity>>> call([NoParam? param]) async {
+  Future<Either<Failuer, Map<String,  CoinsEntity>>> call([NoParam? param]) async {
     return await dashBoardRepo.fetchInitialCoins();
   }
 

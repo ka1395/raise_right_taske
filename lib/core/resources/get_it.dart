@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import '../../features/dash_board/data/data_sources/dash_board_remote_data_source.dart';
 import '../../features/dash_board/data/repos/dash_board_repo_impl.dart';
 import '../../features/dash_board/domain/use_cases/fetch_initial_data_use_case.dart';
+import '../../features/dash_board/domain/use_cases/stream_coins_use_case.dart';
 import '../../features/dash_board/presentation/veiw_model/dashboard_cubit/dashboard_cubit.dart';
 
 final instanceGetIt = GetIt.instance;
@@ -57,9 +58,15 @@ initCoinsModule() {
       () => FetchInitialDataUseCase(instanceGetIt<DashBoardRepoImpl>()),
     );
   }
+  if (!GetIt.I.isRegistered<StreamCoinsUseCase>()) {
+    instanceGetIt.registerFactory<StreamCoinsUseCase>(
+      () => StreamCoinsUseCase(instanceGetIt<DashBoardRepoImpl>()),
+    );
+  }
   if (!GetIt.I.isRegistered<DashboardCubit>()) {
     instanceGetIt.registerFactory<DashboardCubit>(
-      () => DashboardCubit(instanceGetIt<FetchInitialDataUseCase>()),
+      () => DashboardCubit(instanceGetIt<FetchInitialDataUseCase>(),
+          instanceGetIt<StreamCoinsUseCase>()),
     );
   }
 }

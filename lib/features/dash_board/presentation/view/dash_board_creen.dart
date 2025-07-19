@@ -23,14 +23,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => instanceGetIt<DashboardCubit>()..fetchInitialCoins(),
+      create: (context) => instanceGetIt<DashboardCubit>()
+        ..fetchInitialCoins()
+        ..setupWebSocketListener(),
       child: Scaffold(
-        appBar: AppBar(toolbarHeight: 100, title: CustomTitle()),
+        appBar: AppBar(
+          toolbarHeight: 100,
+          title: CustomTitle(),
+          actions: [
+            BlocBuilder<DashboardCubit, DashboardState>(
+              builder: (context, state) => IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () {
+                  // DashboardCubit.get(context).streamCoinsData();
+                },
+              ),
+            ),
+          ],
+        ),
         body: BlocBuilder<DashboardCubit, DashboardState>(
           builder: (context, state) => ListView.builder(
             itemCount: DashboardCubit.get(context).coinsList.length,
             itemBuilder: (context, index) {
-              var coinsItem = DashboardCubit.get(context).coinsList[index];
+              var coinsItem = DashboardCubit.get(
+                context,
+              ).coinsList.values.toList()[index];
               return CustomCryptoCurrencyItem(
                 symbol: coinsItem.symbol,
                 name: coinsItem.name,

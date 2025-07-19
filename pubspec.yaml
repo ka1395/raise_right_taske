@@ -50,6 +50,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cached_network_image: ^3.4.1
+  web_socket_channel: ^3.0.3
 
 flutter_launcher_icons:
   android: "launcher_icon"

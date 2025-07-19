@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/resources/app_rheme_data.dart';
+import '../../veiw_model/dashboard_cubit/dashboard_cubit.dart';
+import '../../veiw_model/dashboard_cubit/dashboard_state.dart';
 
 class CustomTitle extends StatelessWidget {
   const CustomTitle({super.key});
@@ -31,30 +34,34 @@ class CustomTitle extends StatelessWidget {
               textAlign: TextAlign.start,
               style: theme.textTheme.headlineSmall,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "live", // Use localized user name
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.titleMedium!.copyWith(
-                    fontFamily: AppThemData.semiBold,
-                    color: AppThemData.assetColorLightGrey600,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(width: 5),
-                Container(
-                  width: 8,
-                  height: 8,
-                  decoration: const BoxDecoration(
-                    color: Colors.green,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ],
+            BlocBuilder<DashboardCubit, DashboardState>(
+              builder: (context, state) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      DashboardCubit.get(context).statusConnection, // Use localized user name
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleMedium!.copyWith(
+                        fontFamily: AppThemData.semiBold,
+                        color: AppThemData.assetColorLightGrey600,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    Container(
+                      width: 8,
+                      height: 8,
+                      decoration: const BoxDecoration(
+                        color: Colors.green,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ],
         ),

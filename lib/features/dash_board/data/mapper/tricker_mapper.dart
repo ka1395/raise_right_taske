@@ -28,11 +28,11 @@ extension TickerModelExtension on TickerModel? {
     final formattedPrice = double.parse(priceValue.toStringAsFixed(2));
     final formattedVolume = double.parse(volumeValue.toStringAsFixed(2));
 
-    // Calculate spike and ratio efficiently
-    final volumeSpike = formattedVolume >= (formattedPrice * 1.5);
-    final volumeSpikeRatio = formattedPrice > 0
-        ? formattedVolume / formattedPrice
-        : 0.0;
+    // // Calculate spike and ratio efficiently
+    // final volumeSpike = formattedVolume >= (formattedPrice * 1.5);
+    // final volumeSpikeRatio = formattedPrice > 0
+    //     ? formattedVolume / formattedPrice
+    //     : 0.0;
 
     return CoinsEntity(
       symbol: symbol,
@@ -40,8 +40,8 @@ extension TickerModelExtension on TickerModel? {
       price: formattedPrice,
       volume: formattedVolume,
       status: 'listed',
-      volumeSpike: volumeSpike,
-      volumeSpikeRatio: volumeSpikeRatio,
+      volumeSpike: false,
+      volumeSpikeRatio: 0.0,
     );
   }
 }

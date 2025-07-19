@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -12,9 +13,9 @@ class DashBoardRepoImpl extends DashBoardRepo {
   DashBoardRepoImpl({required this.dashBoardRemoteDataSource});
 
   @override
-  Future<Either<Failuer, List<CoinsEntity>>> fetchInitialCoins() async {
+  Future<Either<Failuer, Map<String, CoinsEntity>>> fetchInitialCoins() async {
     try {
-      List<CoinsEntity> coinsList;
+      Map<String, CoinsEntity> coinsList;
       coinsList = await dashBoardRemoteDataSource.fetchInitialCoins();
       return right(coinsList);
     } catch (e) {
@@ -24,5 +25,24 @@ class DashBoardRepoImpl extends DashBoardRepo {
         return left(ServerFailure(e.toString()));
       }
     }
+  }
+
+  @override
+  Future<Either<Failuer, void>> openWebSocket({
+    void Function(CoinsEntity p1)? onCoinsReceived,
+  }) async {
+    try {
+      await dashBoardRemoteDataSource.subscribeToTickerCoinsUpdates(
+        onCoinsReceived: onCoinsReceived,
+      );
+      return right(null);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<void> closeWebSocket() async {
+    await dashBoardRemoteDataSource.closeWebSocket();
   }
 }

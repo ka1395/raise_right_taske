@@ -4,5 +4,9 @@ import '../../../../core/error/failuer.dart';
 import '../entitys/coins_entity.dart';
 
 abstract class DashBoardRepo {
-  Future<Either<Failuer, List<CoinsEntity>>> fetchInitialCoins();
+  Future<Either<Failuer, Map<String, CoinsEntity>>> fetchInitialCoins();
+  Future<Either<Failuer, void>>
+  openWebSocket({void Function(CoinsEntity)? onCoinsReceived});
+    Future<void> closeWebSocket();
+
 }
