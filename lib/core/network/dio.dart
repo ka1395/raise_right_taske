@@ -1,14 +1,22 @@
 import 'package:dio/dio.dart';
-
+import 'package:raise_right_taske/core/network/check_network.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import '../constantd.dart';
 
 class DioHelper {
   static late Dio dio;
-
-  static init() {
+  static late NetworkInfo networkInfo;
+  static init() async {
     dio = Dio(
-      BaseOptions(baseUrl: Constant.baseUrl, receiveDataWhenStatusError: true),
+      BaseOptions(
+        baseUrl: Constant.baseUrl,
+        receiveDataWhenStatusError: true,
+        connectTimeout: const Duration(seconds: 10),
+        sendTimeout: const Duration(seconds: 10),
+        receiveTimeout: const Duration(seconds: 10),
+      ),
     );
+    networkInfo = NetworkInfoImpl(Connectivity());
   }
 
   static Future<Response> get({

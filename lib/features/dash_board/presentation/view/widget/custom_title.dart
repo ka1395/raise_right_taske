@@ -41,7 +41,9 @@ class CustomTitle extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      DashboardCubit.get(context).statusConnection, // Use localized user name
+                      DashboardCubit.get(
+                        context,
+                      ).statusConnection.toString(), // Use localized user name
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.titleMedium!.copyWith(
