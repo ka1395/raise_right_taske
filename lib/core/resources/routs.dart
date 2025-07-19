@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/dash_board/presentation/veiw_model/dashboard_cubit/dashboard_cubit.dart';
 import '../../features/get_start/get_started_screen.dart';
 import '../../features/dash_board/presentation/view/dash_board_creen.dart';
+import '../../features/setting/settings_screen.dart';
 import '../widgets/round_button_fill.dart';
 import 'app_rheme_data.dart';
 import 'get_it.dart';
@@ -12,7 +13,9 @@ import 'responive.dart';
 class AppRouts {
   static const String getStartedScreen = "/";
   static const String dashboardScreen = "/DashboardScreen";
-  static const String loginScreen = "/LoginScreen";
+  static const String settingsScreen = "/SettingsScreen";
+
+  
 }
 
 Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -24,16 +27,8 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       child: const DashboardScreen(),
     ),
     AppRouts.getStartedScreen: const GetStartedScreen(),
-    // AppRouts.introScreen: BlocProvider.value(
-    //   value: instanceGetIt.get<AppCubit>(),
-    //   child: const IntroScreen(),
-    //   //  ,
-    // ),
-    // AppRouts.selectLanguageScreen: BlocProvider.value(
-    //   value: instanceGetIt.get<AppCubit>(),
-    //   child: const SelectLanguageScreen(),
-    //   //  ,
-    // ),
+    AppRouts.settingsScreen: const SettingsScreen(),
+
   };
 
   final builder = routes[settings.name];

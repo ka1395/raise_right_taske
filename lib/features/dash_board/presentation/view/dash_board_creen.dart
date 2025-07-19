@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:raise_right_taske/features/dash_board/presentation/veiw_model/dashboard_cubit/dashboard_state.dart';
 import '../../../../core/resources/get_it.dart';
+import '../../../../core/resources/routs.dart';
 import '../veiw_model/dashboard_cubit/dashboard_cubit.dart';
 
 import 'widget/custom_title.dart';
@@ -34,13 +33,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
         toolbarHeight: 100,
         title: CustomTitle(),
         actions: [
-          BlocBuilder<DashboardCubit, DashboardState>(
-            builder: (context, state) => IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: () {
-                DashboardCubit.get(context).closeWebSocket();
-              },
-            ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.pushNamed(context, AppRouts.settingsScreen);
+            },
           ),
         ],
       ),

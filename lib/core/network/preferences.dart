@@ -3,9 +3,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Preferences {
-  static const isFinishOnBoardingKey = "isFinishOnBoardingKey";
-  static const isLogin = "isLogin";
-  static const token = "token";
+  static const languageKey = "languageKey";
+  static const themeKey = "themKey";
 
   static late SharedPreferences pref;
 
